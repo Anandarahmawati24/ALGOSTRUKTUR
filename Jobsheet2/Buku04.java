@@ -11,6 +11,9 @@ public class Buku04 {
         this.stok = stok;
         harga = har;
     }
+    public Buku04 (){
+        
+    }
 
     void tampilInformasi() {
         System.out.println("Judul: " + Judul);

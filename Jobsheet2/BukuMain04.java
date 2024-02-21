@@ -18,5 +18,9 @@ public class BukuMain04 {
         bk2.terjual(11);
         bk2.tampilInformasi();
 
+        Buku04 bukuAnanda = new Buku04("Teori Algoritma dan Struktur Data", "Albert Einstein", 250, 10, 50000);
+        bukuAnanda.terjual(9);
+        bukuAnanda.tampilInformasi();
+
     }
 }
