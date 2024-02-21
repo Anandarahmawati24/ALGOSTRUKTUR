@@ -4,10 +4,6 @@ public class Buku04 {
     String Judul, Pengarang;
     int halaman, stok, harga;
 
-    public Buku04(){
-
-    }
-
     public Buku04 ( String jud, String pg, int hal, int stok, int har) {
         Judul = jud;
         Pengarang = pg;
@@ -25,7 +21,7 @@ public class Buku04 {
     }
    
     void terjual(int jml){
-        if ( stok > 0 ){
+        if ( stok > 0 && stok >= jml ){
             stok -= jml;
         }else {
             System.out.println("Stok habis");
