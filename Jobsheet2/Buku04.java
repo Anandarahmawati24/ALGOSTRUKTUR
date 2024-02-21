@@ -6,7 +6,7 @@ public class Buku04 {
 
     void tampilInformasi() {
         System.out.println("Judul: " + Judul);
-        System.out.println(" Pengarang: " + Pengarang);
+        System.out.println("Pengarang: " + Pengarang);
         System.out.println("Jumlah halaman: " +halaman);
         System.out.println("Sisa stok: " +stok);
         System.out.println("Harga: Rp " +harga);
