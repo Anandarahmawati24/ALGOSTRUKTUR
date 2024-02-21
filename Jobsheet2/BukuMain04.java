@@ -6,13 +6,16 @@ public class BukuMain04 {
         bk1.Judul = " Today Ends Tomorrow Comes";
         bk1.Pengarang = "Denada Pratiwi";
         bk1.halaman = 198;
-        bk1.stok = 5;
+        bk1.stok = 10;
         bk1.harga = 71000;
 
         bk1.tampilInformasi();
-        bk1.terjual(5);
+        bk1.terjual(7);
         bk1.gantiHarga(60000);
         bk1.tampilInformasi();
+        System.out.println("Harga yang terjual "+bk1.HitungHargaTotal(7));
+        System.out.println("Diskon "+bk1.hitungDiskon(7));
+        
 
         Buku04 bk2 = new Buku04("Self Reward", "Mahendra Ayesha", 160, 29, 59000);
         bk2.terjual(11);
