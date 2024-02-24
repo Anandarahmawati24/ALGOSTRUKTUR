@@ -46,8 +46,8 @@ public class Buku04 {
     int hitungDiskon (int jml){
         int diskon =0;
         int hargatotal = HitungHargaTotal(jml);
-        if ( hargatotal>= 1500000){
-            diskon =(int) 0.12 *hargatotal;
+        if ( hargatotal>= 150000){
+            diskon =(int)( 0.12 *hargatotal);
         }else if (hargatotal< 150000 && hargatotal >= 75000) {
         diskon = (int)(0.05*hargatotal);
     }else {
