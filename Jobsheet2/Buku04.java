@@ -1,5 +1,4 @@
 package Jobsheet2;
-
 public class Buku04 {
     String Judul, Pengarang;
     int halaman, stok, harga;
