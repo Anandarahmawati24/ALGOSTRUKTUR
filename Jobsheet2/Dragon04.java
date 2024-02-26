@@ -51,9 +51,11 @@ public class Dragon04 {
     }
 
     public static void main(String[] args) {
-        Dragon04 d = new Dragon04(1, 2, 0, 0);
+        Dragon04 d = new Dragon04(2, 2, 0, 0);
         d.PrintPosition();
         d.moveRight();
         d.moveDown();
+        d.moveUp();
+        d.moveLeft();
     }
 }
