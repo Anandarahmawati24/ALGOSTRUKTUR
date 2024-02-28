@@ -8,7 +8,11 @@ public class ArrayObjects04 {
      
     public static void main(String[] args) {
     Scanner sc= new Scanner(System.in);
-    PersegiPanjang[] ppArray = new PersegiPanjang[3];
+
+    System.out.print("Masukkan jumlah persegi panjang:");
+    int jumlahPersegi = sc.nextInt();
+    
+    PersegiPanjang[] ppArray = new PersegiPanjang[jumlahPersegi];
      for (int i =0; i<3; i++ ) {
         ppArray[i] = new PersegiPanjang();
         System.out.println("Persegi Panjang ke-" + i);
