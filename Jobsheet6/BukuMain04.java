@@ -30,14 +30,15 @@ public class BukuMain04 {
     System.out.println("Data keseluruhan buku : ");
     data.tampil();
 
-    System.out.println("_______________________________________________");
-    System.out.println("_______________________________________________");
+    System.out.println("________________________________________");
+    System.out.println("________________________________________");
     System.out.println("Pencarian Data : ");
     System.out.println("Masukkan kode buku yang dicari: ");
-    System.out.println("Kode buku : ");
+    System.out.print("Kode buku : ");
     int cari = s.nextInt();
-    System.out.println("menggunakan sequential search");
+    System.out.println("menggunakan sequential search ");
     int posisi = data.FindSeqSearch(cari);
     data.Tampilposisi(cari, posisi);
+    data.TampilData(cari, posisi);
 }
 }
