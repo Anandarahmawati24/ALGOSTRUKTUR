@@ -28,6 +28,15 @@ public class PencarianBuku04 {
         return posisi;
     }
 
+    public Buku04 FindBuku(int cari){
+        for (Buku04 buku : listBK) {
+            if (buku.kodeBuku == cari) {
+                return buku;
+            }
+        }
+        return null;
+    }
+
     public void Tampilposisi(int x, int pos) {
         if (pos!= -1){
             System.out.println("data : "  + x +  " ditemukan pada indeks " + pos);

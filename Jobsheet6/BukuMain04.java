@@ -40,5 +40,8 @@ public class BukuMain04 {
     int posisi = data.FindSeqSearch(cari);
     data.Tampilposisi(cari, posisi);
     data.TampilData(cari, posisi);
+    System.out.println("menggunakan metode FindBuku ");
+    Buku04 dataBuku04 = data.FindBuku(cari);
+    dataBuku04.tampilDataBuku();
 }
 }
