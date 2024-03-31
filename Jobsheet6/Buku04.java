@@ -1,11 +1,11 @@
 public class Buku04 {
-    int kodeBuku;
+    String kodeBuku;
     String judulBuku;
     int tahunTerbit;
     String pengarang;
     int stock;
 
-    public Buku04(int kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock ) {
+    public Buku04(String kodeBuku, String judulBuku, int tahunTerbit, String pengarang, int stock ) {
         this.kodeBuku = kodeBuku;
         this.judulBuku = judulBuku;
         this.tahunTerbit= tahunTerbit;
