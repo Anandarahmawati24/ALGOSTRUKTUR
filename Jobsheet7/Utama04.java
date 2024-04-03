@@ -2,15 +2,19 @@ package Jobsheet7;
 import java.util.Scanner;
 public class Utama04 {
     public static void main(String[] args) {
-        Gudang04 gudang = new Gudang04(7);
         Scanner scanner = new Scanner(System.in);
+        System.out.print("Masukkan kapasitas gudang: ");
+        int kapasitas = scanner.nextInt();
+        Gudang04 gudang = new Gudang04(kapasitas);
+
 
         while (true) {
             System.out.println("\nMenu:");
             System.out.println("1. Tambah barang");
             System.out.println("2. Ambil barang");
             System.out.println("3. Tampilkan tumpukan barang");
-            System.out.println("4. Keluar");
+            System.out.println("4. Lihat barang teratas");
+            System.out.println("5. Keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -34,6 +38,9 @@ public class Utama04 {
                 gudang.tampilBarang();
                 break;
                 case 4:
+                gudang.lihatBarangTeratas();
+                break;
+                case 5:
                 System.out.println("Terima kasih");
                 return;
                 default:
