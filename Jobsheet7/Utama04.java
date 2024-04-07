@@ -14,7 +14,8 @@ public class Utama04 {
             System.out.println("2. Ambil barang");
             System.out.println("3. Tampilkan tumpukan barang");
             System.out.println("4. Lihat barang teratas");
-            System.out.println("5. Keluar");
+            System.out.println("5. Cari Barang");
+            System.out.println("6. Keluar");
             System.out.print("Pilih operasi: ");
             int pilihan = scanner.nextInt();
             scanner.nextLine();
@@ -41,11 +42,30 @@ public class Utama04 {
                 gudang.lihatBarangTeratas();
                 break;
                 case 5:
+                System.out.println("Pilih jenis pencarian:");
+                System.out.println("1. Berdasarkan Kode Barang");
+                System.out.println("2. Berdasarkan Nama Barang");
+                System.out.print("Pilih jenis pencarian: ");
+                int jenisPencarian = scanner.nextInt();
+                scanner.nextLine();
+                if (jenisPencarian == 1) {
+                    System.out.print("Masukkan kode barang: ");
+                    int kodeBarang = scanner.nextInt();
+                    gudang.cariBarangByKode(kodeBarang);
+                } else if (jenisPencarian == 2) {
+                    System.out.print("Masukkan nama barang: ");
+                    String namaBarang = scanner.nextLine();
+                    gudang.cariBarangByNama(namaBarang);
+                } else {
+                    System.out.println("Pilihan tidak valid. Silahkan coba lagi.");
+                }
+                break;
+                case 6:
                 System.out.println("Terima kasih");
                 return;
                 default:
                 System.out.println("Pilihan tidak valid. Silahkan coba lagi.");
+            }
         }
     }
-}
 }
