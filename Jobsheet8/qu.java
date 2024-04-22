@@ -85,6 +85,7 @@ public class qu{
         int dt =0;
         if (IsEmpty()) {
             System.out.println("Queue masih kosong");
+            System.exit(0);
         }else {
             dt = data[front];
             size--;
