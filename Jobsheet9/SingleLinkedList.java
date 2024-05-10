@@ -186,6 +186,7 @@ public class SingleLinkedList {
         }
     }
 
+
     public void removeAt(int index){
         if (index == 0){
             removeFirst();
