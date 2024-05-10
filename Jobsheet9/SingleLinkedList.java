@@ -115,10 +115,10 @@ public class SingleLinkedList {
             return;
         }else{*/
             Node tmp = head;
-            for (int i = 0; i < index; i++){ //syarat i < index
+           for (int i = 0; i < index; i++){ //syarat i < index
                 tmp = tmp.next;
             }
-            //return tmp.next.data;
+           // return tmp.next.data;
             return tmp.data; //langsung tmp.data
         //}
     }
@@ -200,5 +200,4 @@ public class SingleLinkedList {
             }
         }
     }
-
 }
