@@ -1,14 +1,9 @@
 package Jobsheet9;
 public class Ntugas {
-    String data;
-    Ntugas next;
-
-    Ntugas (String  Mahasiswa, Ntugas berikutnya) {
-        data = Mahasiswa;
-        next = berikutnya;
+        Mahasiswa data;
+        Ntugas next;
+        public Ntugas(Mahasiswa mhs){
+            data = mhs;
+            next = null;
+        } 
     }
-
-    Ntugas() {
-        
-    }
-}

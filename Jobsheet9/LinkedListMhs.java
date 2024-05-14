@@ -1,84 +1,81 @@
 package Jobsheet9;
 
 public class LinkedListMhs {
-    Ntugas head, tail ;
-
+    Ntugas head;
+    int size;
     public LinkedListMhs(){
-        head = null;
-        tail = null;
+        head=null;
+        size=0;
     }
-
-    boolean isEmpty(){
-        return head == null;
+    public boolean isEmpty(){
+        return size==0;
     }
-
-    void print(){
-        if(!isEmpty()){
+    public void print(){
+        if(isEmpty())
+            System.out.println("SLL kosong!!!");
+        else{
             Ntugas tmp = head;
-            System.out.println("Isi Linked List");
-            while (tmp != null) {
-                System.out.println(tmp.data + "\t");
+            while(tmp!=null){
+                tmp.data.print();
                 tmp = tmp.next;
             }
-            System.out.println("");
-        } else {
-            System.out.println("Linked List kosong");
         }
     }
-
-    void addFirst(int input){
-        Ntugas ndInput = new Ntugas();
-        if (isEmpty()) {
-            head = ndInput;
-            tail = ndInput;
-        } else {
-            ndInput.next = head;
-            head = ndInput;
-        }
-    }
-
-    void addLast(int input){
-        Ntugas ndInput = new Ntugas();
+    public void addFirst(Mahasiswa mhs){
+        Ntugas newNode = new Ntugas(mhs);
         if(isEmpty()){
-            head = ndInput;
-            tail = ndInput;
-        } else {
-            tail.next = ndInput;
-            tail = ndInput;
+            head = newNode;
+        }else{
+            newNode.next = head;
+            head = newNode;
         }
+        size++;
     }
-    void insertAfter (int key, int input){
-        Ntugas ndInput = new Ntugas();
-        Ntugas temp = head;
-        do{
-            if(temp.data.equals(key)){
-                ndInput.next = temp.next;
-                temp.next = ndInput;
-                if (ndInput.next ==null) {
-                    tail=ndInput;
+    public void addLast(Mahasiswa mhs){
+        Ntugas newNode = new Ntugas(mhs);
+        if(isEmpty()){
+            head = newNode;
+        }else{
+            Ntugas tmp = head;
+            while(tmp.next!=null){
+                tmp = tmp.next;
+            }
+            tmp.next = newNode;
+        }
+        size++;
+    }
+    public void insertAfter(String afterNim, Mahasiswa mhs){
+        if(isEmpty()){
+            addFirst(mhs);
+        }else{
+            Ntugas tmp = head;
+            while(tmp!=null){
+                if(tmp.data.nim.equalsIgnoreCase(afterNim)){
+                    Ntugas newNode = new Ntugas(mhs);
+                    newNode.next = tmp.next;
+                    tmp.next = newNode;
+                    size++;
                     break;
+                }else{
+                    tmp = tmp.next;
                 }
             }
-            temp = temp.next;
         }
-        while(temp != null);
     }
-
-    void insertAt(int index, int input){
-        if (index < 0){
-            System.out.println("perbaiki logikanya!"
-            + "kalau indeksnya -1 bagaimana???");
-        } else if (index == 0) {
-            addFirst(input);
-        } else{
-            Ntugas temp = head;
-            for (int i=0; i<index-1; i++){
-                temp = temp.next;
+    public void insertAt(int idx, Mahasiswa mhs){
+        if(isEmpty()||idx==0){
+            addFirst(mhs);
+        }else if(idx==size){
+            addLast(mhs);
+        }else{
+            Ntugas tmp = head;
+            for(int i=0; i<idx-1;i++){
+                tmp = tmp.next;
             }
-            temp.next = new Ntugas();
-            if(temp.next.next==null){
-                tail=temp.next;
-            }
+            Ntugas newNode = new Ntugas(mhs);
+            newNode.next = tmp.next;
+            tmp.next = newNode;
+            size++;
         }
     }
 }
