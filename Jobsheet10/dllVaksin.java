@@ -9,7 +9,7 @@ public class dllVaksin {
         size = 0;
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty () {
         return head == null;
     }
 
