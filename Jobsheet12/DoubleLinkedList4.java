@@ -1,5 +1,8 @@
 package Jobsheet12;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DoubleLinkedList4 {
     Node4 head;
     int size;
@@ -63,6 +66,10 @@ public class DoubleLinkedList4 {
             }
             size++;
         }
+    }
+
+    public Node4 getHead() {
+        return head;
     }
 
     public int size() {
