@@ -4,20 +4,20 @@ import java.util.LinkedList;
 import java.util.List;
 public class ContohList4 {
     public static void main(String[] args) {
-        List l = new ArrayList();
+        List <Integer> l = new ArrayList<>();
         l.add(1);
         l.add(2);
         l.add(3);
-        l.add("Cireng");
-        System.out.printf("Element at index 0: %d, total elements: %d last element: %s\n",
+        //l.add("Cireng");
+        System.out.printf("Element at index 0: %s, total elements: %s last element: %s\n",
                 l.get(0), l.size(), l.get(l.size() - 1));
         l.add(4);
         l.remove(0);
 
-        System.out.printf("Element at index 0: %d, total elements: %d, last element: %s\n",
+        System.out.printf("Element at index 0: %s, total elements: %s, last element: %s\n",
                 l.get(0), l.size(), l.get(l.size() - 1));
 
-        List<String> names = new LinkedList<>();
+        LinkedList<String> names = new LinkedList<>();
         names.add("Noureen");
         names.add("Akhleema");
         names.add("Shannum");
@@ -32,5 +32,11 @@ public class ContohList4 {
                 names.get(0), names.size(), names.get(names.size() - 1));
 
         System.out.println("Names: " + names.toString());
+
+        names.push("Mei-mei");
+        System.out.printf("Element at index 0: %s, total elements: %s, last element: %s\n",
+                names.getFirst(), names.size(), names.getLast());
+        System.out.println("Names: " + names.toString());
+
     }
 }
