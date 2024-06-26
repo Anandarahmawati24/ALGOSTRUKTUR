@@ -9,5 +9,15 @@ public class BinaryTreeArrayMain04 {
     System.out.print("\nInOrder Traversal: ");
     bta.traverseInOrder(0);
     System.out.print("\n");
+    bta.add(10);
+    bta.add(15);
+
+    System.out.print("PreOrder Traversal: ");
+    bta.traversePreOrder(0);
+    System.out.println("");
+
+    System.out.print("PostOrder Traversal: ");
+    bta.traversePostOrder(0);
+    System.out.println("");
 }
 }
