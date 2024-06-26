@@ -2,25 +2,36 @@ package Jobsheet12;
 
 public class GraphMatriks4 {
     int vertex;
-    int [] [] matriks;
+    int[][] matriks;
 
     public GraphMatriks4(int v) {
-        vertex=v;
+        vertex = v;
         matriks = new int[v][v];
+        for (int i = 0; i < v; i++) {
+            for (int j = 0; j < v; j++) {
+                matriks[i][j] = -1;  // Initialize with -1 to indicate no edge
+            }
+        }
     }
 
-    public void makeEdge (int asal, int tujuan, int jarak){
-        matriks [asal][tujuan] = jarak;
+    public void makeEdge(int asal, int tujuan, int jarak) throws Exception {
+        if (asal < 0 || asal >= vertex || tujuan < 0 || tujuan >= vertex) {
+            throw new Exception("Nilai indeks diluar batas");
+        }
+        matriks[asal][tujuan] = jarak;
     }
 
-    public void removeEdge (int asal, int tujuan) {
-        matriks [asal][tujuan] = -1;
+    public void removeEdge(int asal, int tujuan) throws Exception {
+        if (asal < 0 || asal >= vertex || tujuan < 0 || tujuan >= vertex) {
+            throw new Exception("Nilai indeks diluar batas");
+        }
+        matriks[asal][tujuan] = -1;
     }
 
     public void printGraph() {
-        for (int i =0; i < vertex; i++) {
+        for (int i = 0; i < vertex; i++) {
             System.out.println("Gedung " + (char) ('A' + i) + ": ");
-            for (int j=0; j< vertex; j++) {
+            for (int j = 0; j < vertex; j++) {
                 if (matriks[i][j] != -1) {
                     System.out.print("Gedung " + (char) ('A' + j) + " (" + matriks[i][j] + " m), ");
                 }

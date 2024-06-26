@@ -1,7 +1,7 @@
 package Jobsheet12;
 
 public class GraphMain4 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Graph4 gedung = new Graph4(6);
         gedung.addEdge(0, 1, 50);
         gedung.addEdge(0, 2, 100);
@@ -10,6 +10,8 @@ public class GraphMain4 {
         gedung.addEdge(3, 4, 60);
         gedung.addEdge(4, 5, 80);
         gedung.degree(0);
+        gedung.printGraph();
+        gedung.removeEdge(1,3);
         gedung.printGraph();
     }
 }
