@@ -6,9 +6,11 @@ public class TMain4 {
     List<Tmhs4> mahasiswaList = new ArrayList<>();
     List<TMataKuliah4> mataKuliahList = new ArrayList<>();
     List<TNilai4> nilaiList = new ArrayList<>();
+    Queue<Tmhs4> mahasiswaQueue = new LinkedList<>();
 
     public void tambahMahasiswa(Tmhs4 mhs) {
         mahasiswaList.add(mhs);
+        mahasiswaQueue.offer(mhs); // tambahkan mahasiswa ke dalam Queue
     }
 
     public void tambahMataKuliah(TMataKuliah4 mk) {
@@ -61,6 +63,21 @@ public class TMain4 {
         nilaiList.sort((n1, n2) -> Double.compare(n2.nilai, n1.nilai));
     }
 
+    public void hapusMahasiswa() {
+        Tmhs4 removedMahasiswa = mahasiswaQueue.poll(); // hapus dari depan Queue
+        if (removedMahasiswa != null) {
+            System.out.println("Mahasiswa dengan NIM " + removedMahasiswa.nim + " telah dihapus dari daftar.");
+    
+            // Hapus dari mahasiswaList
+            mahasiswaList.removeIf(mhs -> mhs.nim.equals(removedMahasiswa.nim));
+    
+            // Hapus dari nilaiList jika ada
+            nilaiList.removeIf(nilai -> nilai.mahasiswa.nim.equals(removedMahasiswa.nim));
+        } else {
+            System.out.println("Tidak ada mahasiswa yang bisa dihapus.");
+        }
+    }
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TMain4 main = new TMain4();
@@ -90,7 +107,8 @@ public class TMain4 {
             System.out.println("2. Tampilkan Nilai");
             System.out.println("3. Cari Nilai Mahasiswa");
             System.out.println("4. Urutkan Nilai Descending");
-            System.out.println("5. Keluar");
+            System.out.println("5. Hapus Data Mahasiswa");
+            System.out.println("6. Keluar");
             System.out.println("***********************************************");
             System.out.print("Pilih : ");
             pilihan = sc.nextInt();
@@ -148,7 +166,7 @@ public class TMain4 {
                     } else {
                         System.out.println("Nilai untuk mahasiswa dengan NIM " + nimCari + " tidak ditemukan.");
                     }
-                    break;                
+                    break;
                 case 4:
                     // Urutkan Nilai Descending
                     main.urutkanNilaiDescending();
@@ -156,13 +174,17 @@ public class TMain4 {
                     main.tampilNilai();
                     break;
                 case 5:
+                    // Hapus Data Mahasiswa
+                    main.hapusMahasiswa();
+                    break;
+                case 6:
                     // Keluar
                     System.out.println("Keluar dari program.");
                     break;
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
-        } while (pilihan != 5);
+        } while (pilihan != 6);
 
         sc.close();
     }
@@ -176,7 +198,6 @@ public class TMain4 {
         }
         System.out.println("===============================================================================");
     }
-    
 
     private void tampilMataKuliah() {
         System.out.println("=========================================================");
@@ -186,5 +207,5 @@ public class TMain4 {
             System.out.printf("%-10s | %-30s | %-5d\n", mk.kode, mk.namaMK, mk.sks);
         }
         System.out.println("=========================================================");
-    }    
+    }
 }
