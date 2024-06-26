@@ -1,6 +1,8 @@
 package Jobsheet16;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListMahasiswa4 {
@@ -22,14 +24,24 @@ public void tampil() {
         System.out.println("" + mhs.toString());
     });
 }
+void sortByNimAscending() {
+    Collections.sort(mahasiswas, Comparator.comparing(m -> m.nim));
+}
 
-int LinearSearch(String nim) {
-    for (int i=0; i < mahasiswas.size(); i++) {
-        if (nim.equals(mahasiswas.get(i).nim)) {
-            return i;
-        }
-    }
-    return -1;
+int binarySearch(String nim) {
+    sortByNimAscending();
+    int index = Collections.binarySearch(mahasiswas, new Mahasiswa4(nim, null, null), Comparator.comparing(m -> m.nim));
+    return index >= 0 ? index : -1;
+}
+
+// Sort ascending berdasarkan NIM
+void sortAscending() {
+    Collections.sort(mahasiswas, Comparator.comparing(m -> m.nim));
+}
+
+// Sort descending berdasarkan NIM
+void sortDescending() {
+    Collections.sort(mahasiswas, (m1, m2) -> m2.nim.compareTo(m1.nim));
 }
 
 public static void main(String[] args) {
@@ -42,8 +54,20 @@ public static void main(String[] args) {
     //menampilkan list mahasiswa 
     lm.tampil();
     //update mahasiswa
-    lm.update(lm.LinearSearch("201235"), new Mahasiswa4("201235", "Akhleema Lela", "021xx2"));
+    lm.update(lm.binarySearch("201235"), new Mahasiswa4("201235", "Akhleema Lela", "021xx2"));
     System.out.println("");
+    lm.tampil();
+
+    // Sorting ascending
+    System.out.println("");
+    System.out.println("Sorting ascending:");
+    lm.sortAscending();
+    lm.tampil();
+
+    // Sorting descending
+    System.out.println("");
+    System.out.println("Sorting descending:");
+    lm.sortDescending();
     lm.tampil();
 }
 }
