@@ -17,6 +17,26 @@ public class GraphMatriks4 {
         matriks[asal][tujuan] = -1;
     }
 
+    public int inDegree(int node) {
+        int count = 0;
+        for (int i = 0; i < vertex; i++) {
+            if (matriks[i][node] != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public int outDegree(int node) {
+        int count = 0;
+        for (int j = 0; j < vertex; j++) {
+            if (matriks[node][j] != -1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public void printGraph() {
         for (int i = 0; i < vertex; i++) {
             System.out.print("Gedung " + (char) ('A' + i) + ": ");

@@ -45,7 +45,15 @@ public class GraphMain4 {
         System.out.println("Hasil setelah penghapusan edge");
         gdg.removeEdge(2,1);
         gdg.printGraph();
+       
+        System.out.println("Graf Matriks:");
+        gdg.printGraph();
 
-        scanner.close();
+        // Menghitung inDegree dan outDegree untuk setiap node
+        for (int i = 0; i < gdg.vertex; i++) {
+            System.out.println("Node " + (char) ('A' + i) + ":");
+            System.out.println("   inDegree: " + gdg.inDegree(i));
+            System.out.println("   outDegree: " + gdg.outDegree(i));
+        }
     }
 }
