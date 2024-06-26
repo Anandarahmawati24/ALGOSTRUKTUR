@@ -122,31 +122,42 @@ public class DoubleLinkedList4 {
             size--;
         }
     }
+    public boolean remove(int data) {
+        if (isEmpty()) {
+            return false;
+        }
 
-    public void remove(int index) throws Exception {
-        if (isEmpty() || index >= size || index < 0) {
-            throw new Exception("Nilai indeks diluar batas");
-        } else if (index == 0) {
-            removeFirst();
-        } else {
-            Node4 current = head;
-            int i = 0;
-            while (i < index) {
-                current = current.next;
-                i++;
+        Node4 current = head;
+
+        // Jika node yang akan dihapus adalah head
+        if (current.data == data) {
+            head = head.next;
+            if (head != null) {
+                head.prev = null;
             }
-            if (current.next == null) {
-                current.prev.next = null;
-            } else if (current.prev == null) {
-                current = current.next;
-                current.prev = null;
-                head = current;
-            } else {
+            size--;
+            return true;
+        }
+
+        // Traverse list to find the node with given data
+        while (current != null && current.data != data) {
+            current = current.next;
+        }
+
+        // If found, remove the node
+        if (current != null) {
+            // Adjust the pointers
+            if (current.prev != null) {
                 current.prev.next = current.next;
+            }
+            if (current.next != null) {
                 current.next.prev = current.prev;
             }
             size--;
+            return true;
         }
+
+        return false; // Node not found
     }
 
     public int getFirst() throws Exception {
