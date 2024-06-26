@@ -1,4 +1,5 @@
 package Jobsheet16;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Stack;
 
@@ -23,7 +24,7 @@ public class LoopCollection4 {
     }
 
     fruits.push("Melon");
-    fruits.push("Durian");
+    fruits.push("Strawberry");
     System.out.println("");
     for (Iterator<String> it = fruits.iterator(); it.hasNext();) {
         String fruit = it.next();
@@ -37,5 +38,25 @@ public class LoopCollection4 {
     for (int i=0; i < fruits.size(); i++) {
         System.out.printf("%s ", fruits.get(i));
     }
-}
+
+        fruits.add("Mango");
+        fruits.add("Guava");
+        fruits.add("Avocado");
+        Collections.sort(fruits);
+
+        System.out.println("");
+        System.out.println("\nData sesudah disorting ");
+        for (Iterator<String> it = fruits.iterator(); it.hasNext();) {
+            String fruit = it.next();
+            System.out.printf("%s ", fruit);
+        }
+        System.out.println("");
+        fruits.stream().forEach(e -> {
+            System.out.printf("%s ", e);
+        });
+        System.out.println("");
+        for (int i = 0; i < fruits.size(); i++) {
+            System.out.printf("%s ", fruits.get(i));
+        }
+    }
 }
